@@ -1,44 +1,64 @@
-# Introduction to NumPy (Portfolio Project)
+# Introduction to NumPy
 
-This project demonstrates foundational skills in **NumPy**, a core Python library for numerical computing and data analysis.
+Учебный проект, демонстрирующий базовые навыки работы с библиотекой **NumPy** — ключевым инструментом для аналитики данных и научных вычислений.
 
-The notebook contains structured examples and exercises that cover essential NumPy techniques used in data analytics and scientific programming.
-
----
-
-## 📘 Skills Covered
-
-- Creating and manipulating NumPy arrays
-- Indexing, slicing, filtering
-- Mathematical operations and functions
-- Reshaping, concatenation, splitting
-- Random data generation
-- Broadcasting operations
-- Basic performance comparison vs native Python lists
+В ноутбуке представлены примеры и упражнения, охватывающие основные операции с массивами, работу с индексами, матрицами, случайными данными и broadcasting.
 
 ---
 
-## 📂 Project Structure
+## 📘 Навыки
 
-| File | Description |
-|------|------------|
-| `numpy_intro.ipynb` | Jupyter Notebook with NumPy fundamentals & practice exercises |
-
----
-
-## 🛠️ Tools & Technologies
-
-| Technology | Purpose |
-|-----------|--------|
-| Python | Programming language |
-| NumPy | Numerical computations |
-| Jupyter Notebook | Interactive exploration |
+- Создание и работа с NumPy-массивами  
+- Индексация, срезы, фильтрация  
+- Математические операции  
+- Объединение и изменение формы массивов  
+- Работа со случайными данными  
+- Broadcasting  
+- Сравнение скорости NumPy vs Python list  
 
 ---
 
-## 🚀 How to Run
+## 📂 Структура проекта
 
-Install required libraries:
+| Файл | Описание |
+|------|----------|
+| `numpy_intro.ipynb` | Основной ноутбук с примерами и практикой |
+| `numpy_intro.html` | HTML-версия ноутбука для просмотра без Jupyter |
+
+---
+
+## 🛠️ Используемые инструменты
+
+| Технология | Описание |
+|-----------|----------|
+| Python | Язык программирования |
+| NumPy | Работа с массивами и вычислениями |
+| Jupyter Notebook | Интерактивная среда |
+
+---
+
+## 🚀 Как запустить
+
+Установите библиотеки:
 
 ```bash
 pip install numpy jupyterlab
+```
+
+Запуск среды:
+
+```bash
+jupyter lab
+```
+
+Либо открыть в Jupyter Notebook:
+
+```bash
+jupyter notebook
+```
+
+---
+
+## 🎯 Цель проекта
+
+Закрепить основы NumPy и подготовиться к дальнейшим темам: Pandas, визуализация данных и машинное обучение.
