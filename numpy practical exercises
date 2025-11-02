@@ -1,0 +1,1098 @@
+Введение в библиотеку NumPy
+import numpy as np
+a=np.array([1,4,5,8],float)
+a
+array([1., 4., 5., 8.])
+a=np.array([1.0, 4.0, 5.0, 8.0])
+type(a)
+numpy.ndarray
+a[:2]
+array([1., 4.])
+a[3]
+8.0
+a[0]=5.
+a
+array([5., 4., 5., 8.])
+a=np.array([[1,2,3],[4,5,6]], float)
+a
+array([[1., 2., 3.],
+       [4., 5., 6.]])
+a[0,0]
+1.0
+a[0,1]
+2.0
+a=np.array([[1,2,3], [4,5,6]], float)
+a[1,:]
+array([4., 5., 6.])
+a[:,2]
+array([3., 6.])
+a[-1:, -2:]
+array([[5., 6.]])
+a.shape
+(2, 3)
+a.dtype
+dtype('float64')
+a=np.array([[1,2,3], [4,5,6]], float)
+len(a)
+2
+a=np.array([[1,2,3], [4,5,6]], float)
+2 in a
+True
+0 in a
+False
+a= np.array(range(10), float)
+a
+array([0., 1., 2., 3., 4., 5., 6., 7., 8., 9.])
+a=a.reshape((5,2))
+a
+array([[0., 1.],
+       [2., 3.],
+       [4., 5.],
+       [6., 7.],
+       [8., 9.]])
+a.shape
+(5, 2)
+a=np.array([1,2,3], float)
+b=a
+c=a.copy()
+a[0]=0
+a
+array([0., 2., 3.])
+a
+array([0., 2., 3.])
+b
+array([0., 2., 3.])
+c
+array([1., 2., 3.])
+a=np.array([1,2,3], float)
+a.tolist()
+[1.0, 2.0, 3.0]
+list(a)
+[1.0, 2.0, 3.0]
+a = np.array([1,2,3], float)
+s = a.tostring()
+s
+C:\Users\USER\AppData\Local\Temp\ipykernel_11156\3041757516.py:2: DeprecationWarning: tostring() is deprecated. Use tobytes() instead.
+  s = a.tostring()
+b'\x00\x00\x00\x00\x00\x00\xf0?\x00\x00\x00\x00\x00\x00\x00@\x00\x00\x00\x00\x00\x00\x08@'
+np.fromstring(s)
+C:\Users\USER\AppData\Local\Temp\ipykernel_11156\4042211205.py:1: DeprecationWarning: The binary mode of fromstring is deprecated, as it behaves surprisingly on unicode inputs. Use frombuffer instead
+  np.fromstring(s)
+array([1., 2., 3.])
+a=np.array([1,2,3], float)
+a
+array([1., 2., 3.])
+np.array([1., 2., 3.])
+a.fill(0)
+a
+array([0., 0., 0.])
+a = np.array(range(6), float).reshape((2,3))
+a
+array([[0., 1., 2.],
+       [3., 4., 5.]])
+a.transpose()
+array([[0., 3.],
+       [1., 4.],
+       [2., 5.]])
+a = np.array([[1,2,3],[4,5,6]], float)
+a
+array([[1., 2., 3.],
+       [4., 5., 6.]])
+a.flatten()
+array([1., 2., 3., 4., 5., 6.])
+a = np.array([1,2], float)
+b = np.array([3,4,5,6], float)
+c = np.array([7,8,9], float)
+np.concatenate((a, b, c))
+array([1., 2., 3., 4., 5., 6., 7., 8., 9.])
+a = np.array([[1,2], [3,4]], float)
+b = np.array([[5,6], [7,8]], float)
+np.concatenate((a,b))
+array([[1., 2.],
+       [3., 4.],
+       [5., 6.],
+       [7., 8.]])
+np.concatenate((a,b), axis=0)
+array([[1., 2.],
+       [3., 4.],
+       [5., 6.],
+       [7., 8.]])
+np.concatenate((a,b), axis=1)
+array([[1., 2., 5., 6.],
+       [3., 4., 7., 8.]])
+a = np.array([1,2,3], float)
+a
+array([1., 2., 3.])
+a[:, np.newaxis]
+array([[1.],
+       [2.],
+       [3.]])
+a[:, np.newaxis].shape
+(3, 1)
+b[np.newaxis, :]
+array([[-1.,  3.]])
+b[np.newaxis,:].shape
+(1, 2)
+NumPy в Python. Часть 2
+np.arange(5, dtype=float)
+array([0., 1., 2., 3., 4.])
+np.arange(1,6,2, dtype=int)
+array([1, 3, 5])
+np.ones((2,3), dtype=float)
+array([[1., 1., 1.],
+       [1., 1., 1.]])
+np.zeros(7, dtype=int)
+array([0, 0, 0, 0, 0, 0, 0])
+a = np.array([[1,2,3], [4,5,6]], float)
+np.zeros_like(a)
+array([[0., 0., 0.],
+       [0., 0., 0.]])
+np.ones_like(a)
+array([[1., 1., 1.],
+       [1., 1., 1.]])
+a = np.array([[1,2,3], [4,5,6]], float)
+np.zeros_like(a)
+array([[0., 0., 0.],
+       [0., 0., 0.]])
+np.ones_like(a)
+array([[1., 1., 1.],
+       [1., 1., 1.]])
+np.identity(4, dtype=float)
+array([[1., 0., 0., 0.],
+       [0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.]])
+np.eye(4, k=1, dtype=float)
+array([[0., 1., 0., 0.],
+       [0., 0., 1., 0.],
+       [0., 0., 0., 1.],
+       [0., 0., 0., 0.]])
+a = np.array([1,2,3], float)
+b = np.array([5,2,6], float)
+a+b
+array([6., 4., 9.])
+a-b
+array([-4.,  0., -3.])
+a*b
+array([ 5.,  4., 18.])
+b/a
+array([5., 1., 2.])
+a%b
+array([1., 0., 3.])
+b**a
+array([  5.,   4., 216.])
+a = np.array([[1,2], [3, 4]], float)
+b = np.array([[2, 0], [1,3]], float)
+a*b
+array([[ 2.,  0.],
+       [ 3., 12.]])
+a = np.array([1,2,3], float)
+b = np.array([4,5], float)
+a+b
+---------------------------------------------------------------------------
+ValueError                                Traceback (most recent call last)
+~\AppData\Local\Temp\ipykernel_11156\1519579303.py in <module>
+      1 a = np.array([1,2,3], float)
+      2 b = np.array([4,5], float)
+----> 3 a+b
+
+ValueError: operands could not be broadcast together with shapes (3,) (2,) 
+a = np.array([1,2,3], float)
+b = np.array([4,5,8], float)
+a+b
+array([ 5.,  7., 11.])
+a = np.array([[1,2], [3,4], [5,6]], float)
+b = np.array([-1, 3], float)
+a
+array([[1., 2.],
+       [3., 4.],
+       [5., 6.]])
+b
+array([-1.,  3.])
+a+b
+array([[0., 5.],
+       [2., 7.],
+       [4., 9.]])
+a = np.zeros((2,2), float)
+b = np.array([-1., 3.], float)
+a
+array([[0., 0.],
+       [0., 0.]])
+b
+array([-1.,  3.])
+a+b
+array([[-1.,  3.],
+       [-1.,  3.]])
+a+b[np.newaxis,:]
+array([[-1.,  3.],
+       [-1.,  3.]])
+a = np.array([1,4,9], float)
+np.sqrt(a)
+array([1., 2., 3.])
+a = np.array([1.1, 1.5, 1.9], float)
+np.floor(a)
+array([1., 1., 1.])
+np.ceil(a)
+array([2., 2., 2.])
+np.rint(a)
+array([1., 2., 2.])
+np.pi
+3.141592653589793
+np.e
+2.718281828459045
+a = np.array([1,4,5], int)
+for x in a:
+    print(x)
+1
+4
+5
+a = np.array([[1,2],[3,4], [5,6]], float)
+for x in a:
+    print(x)
+[1. 2.]
+[3. 4.]
+[5. 6.]
+a = np.array([[1,2], [3,4], [5,6]], float)
+for(x, y) in a:
+    print(x*y)
+2.0
+12.0
+30.0
+a = np.array([2,4,3], float)
+a.sum()
+9.0
+a.prod()
+24.0
+np.sum(a)
+9.0
+np.prod(a)
+24.0
+a = np.array([2,1,9], float)
+a.mean()
+4.0
+a.var()
+12.666666666666666
+a.std()
+3.559026084010437
+a = np.array([2,1,9], float)
+a.min()
+1.0
+a.max()
+9.0
+a = np.array([2,1,9], float)
+a.argmin()
+1
+a.argmax()
+2
+a = np.array([[0,2], [3, -1], [3,5]], float)
+a.mean(axis=0)
+array([2., 2.])
+a.mean(axis=1)
+array([1., 1., 4.])
+a.min(axis=1)
+array([ 0., -1.,  3.])
+a.max(axis=0)
+array([3., 5.])
+a = np.array([6,2,5,-1,0], float)
+sorted(a)
+[-1.0, 0.0, 2.0, 5.0, 6.0]
+a.sort()
+a
+array([-1.,  0.,  2.,  5.,  6.])
+a = np.array([6, 2, 5, -1, 0], float)
+a.clip(0, 5)
+array([5., 2., 5., 0., 0.])
+a = np.array([1,1,4,5,5,5,7], float)
+np.unique(a)
+array([1., 4., 5., 7.])
+a = np.array([[1,2], [3,4]], float)
+a.diagonal
+array([1., 4.])
+NumPy в Python. Часть 3
+a = np.array([1,3,0], float)
+b = np.array([0,3,2], float)
+a>b
+array([ True, False, False])
+a==b
+array([False,  True, False])
+a<=b
+array([False,  True,  True])
+c = a>b
+c
+array([ True, False, False])
+a = np.array([1,3,0], float)
+a>2
+array([False,  True, False])
+c = np.array([False,  True, False], bool)
+any(c)
+True
+all(c)
+False
+a = np.array([1,3,0], float)
+np.logical_and(a > 0, a < 3)
+array([ True, False, False])
+b = np.array([True, False, True], bool)
+np.logical_not(b)
+array([False,  True, False])
+c = np.array([False, True, False], bool)
+np.logical_or(b, c)
+array([ True,  True,  True])
+a = np.array([1,3,0], float)
+np.where(a !=0,1/a,a)
+C:\Users\USER\AppData\Local\Temp\ipykernel_11156\2973225306.py:2: RuntimeWarning: divide by zero encountered in true_divide
+  np.where(a !=0,1/a,a)
+array([1.        , 0.33333333, 0.        ])
+np.where(a > 0, 3,2)
+array([3, 3, 2])
+a = np.array([[0,1], [3,0]], float)
+a.nonzero()
+(array([0, 1], dtype=int64), array([1, 0], dtype=int64))
+a = np.array([1, np.NaN, np.Inf], float)
+a
+array([ 1., nan, inf])
+np.isnan(a)
+array([False,  True, False])
+np.isfinite(a)
+array([ True, False, False])
+a = np.array([[6,4], [5,9]], float)
+a >= 6
+array([[ True, False],
+       [False,  True]])
+a[a >= 6]
+array([6., 9.])
+a = np.array([[6,4], [5,9]], float)
+sel = (a>= 6)
+a[sel]
+array([6., 9.])
+a[np.logical_and(a > 5, a < 9)]
+np.array([6.])
+array([6.])
+a = np.array([2,4,6,8], float)
+b = np.array([0,0,1,3,2,1], int)
+a[b]
+array([2., 2., 4., 8., 6., 4.])
+a = np.array([2,4,6,8], float)
+a[[0,0,1,3,2,1]]
+array([2., 2., 4., 8., 6., 4.])
+a = np.array([[1,4], [9,16]], float)
+b = np.array([0,0,1,3,2,1], int)
+a.take(b)
+array([ 1.,  1.,  4., 16.,  9.,  4.])
+a = np.array([[0,1], [2,3]], float)
+b = np.array([0,0,1], int)
+a.take(b, axis=0)
+array([[0., 1.],
+       [0., 1.],
+       [2., 3.]])
+a.take(b, axis=1)
+array([[0., 0., 1.],
+       [2., 2., 3.]])
+a = np.array([0,1,2,3,4,5], float)
+b = np.array([9,8,7], float)
+a.put([0,3], b)
+a
+array([9., 1., 2., 8., 4., 5.])
+a = np.array([0,1,2,3,4,5], float)
+a.put([0,3], 5)
+a
+array([5., 1., 2., 5., 4., 5.])
+a = np.array([1,2,3], float)
+b = np.array([0,1,1], float)
+np.dot(a,b)
+5.0
+a = np.array([[0,1], [2,3]], float)
+b = np.array([2,3], float)
+c = np.array([[1,1], [4,0]], float)
+a
+array([[0., 1.],
+       [2., 3.]])
+np.dot(b,a)
+array([ 6., 11.])
+np.dot(a,b)
+array([ 3., 13.])
+np.dot(a,c)
+array([[ 4.,  0.],
+       [14.,  2.]])
+np.dot(c,a)
+array([[2., 4.],
+       [0., 4.]])
+a = np.array([1,4,0], float)
+b = np.array([2,2,1], float)
+np.outer(a,b)
+array([[2., 2., 1.],
+       [8., 8., 4.],
+       [0., 0., 0.]])
+np.inner(a,b)
+10.0
+np.cross(a,b)
+array([ 4., -1., -6.])
+a = np.array([[4,2,0], [9,3,7], [1,2,1]], float)
+a
+array([[4., 2., 0.],
+       [9., 3., 7.],
+       [1., 2., 1.]])
+np.linalg.det(a)
+-48.00000000000003
+vals, vecs = np.linalg.eig(a)
+vals
+array([ 8.85591316,  1.9391628 , -2.79507597])
+vecs
+array([[-0.3663565 , -0.54736745,  0.25928158],
+       [-0.88949768,  0.5640176 , -0.88091903],
+       [-0.27308752,  0.61828231,  0.39592263]])
+b = np.linalg.inv(a)
+b
+array([[ 0.22916667,  0.04166667, -0.29166667],
+       [ 0.04166667, -0.08333333,  0.58333333],
+       [-0.3125    ,  0.125     ,  0.125     ]])
+np.dot(a,b)
+array([[ 1.00000000e+00,  0.00000000e+00, -2.22044605e-16],
+       [ 0.00000000e+00,  1.00000000e+00,  0.00000000e+00],
+       [ 0.00000000e+00,  0.00000000e+00,  1.00000000e+00]])
+a = np.array([[1,3,4], [5,2,3]], float)
+U, s, Vh = np.linalg.svd(a)
+U
+array([[ 0.6113829 , -0.79133492],
+       [ 0.79133492,  0.6113829 ]])
+s
+array([7.46791327, 2.86884495])
+Vh
+array([[ 0.61169129,  0.45753324,  0.64536587],
+       [ 0.78971838, -0.40129005, -0.46401635],
+       [-0.046676  , -0.79349205,  0.60678804]])
+s
+array([7.46791327, 2.86884495])
+NumPy в Python. Часть 4
+np.poly([-1, 1,1,10])
+array([  1., -11.,   9.,  11., -10.])
+np.roots([1,4,-2,3])
+array([-4.5797401 +0.j        ,  0.28987005+0.75566815j,
+        0.28987005-0.75566815j])
+np.polyint([1,1,1,1])
+array([0.25      , 0.33333333, 0.5       , 1.        , 0.        ])
+np.polyder([1./4., 1./3., 1./2., 1., 0.])
+array([1., 1., 1., 1.])
+np.polyval([1, -2, 0, 2], 4)
+34
+x = [1, 2, 3, 4, 5, 6, 7, 8]
+y = [0, 2, 1, 3, 7, 10, 11, 19]
+np.polyfit(x, y, 2)
+array([ 0.375     , -0.88690476,  1.05357143])
+a = np.array([1, 4, 3, 8, 9, 2, 3], float)
+np.median(a)
+3.0
+a = np.array([[1, 2, 1, 3], [5, 3, 1, 8]], float)
+c = np.corrcoef(a)
+c
+array([[1.        , 0.72870505],
+       [0.72870505, 1.        ]])
+np.cov(a)
+array([[0.91666667, 2.08333333],
+       [2.08333333, 8.91666667]])
+np.random.seed(293423)
+np.random.rand(5)
+array([0.33677247, 0.52693437, 0.79529578, 0.78867702, 0.02147624])
+np.random.rand(2,3)
+array([[0.84612516, 0.0704939 , 0.1526965 ],
+       [0.77831701, 0.80821151, 0.82198398]])
+np.random.rand(6).reshape((2,3))
+array([[0.90239653, 0.8385685 , 0.02638565],
+       [0.33681448, 0.46480928, 0.61686496]])
+np.random.random()
+0.43767262538051455
+np.random.randint(5, 10)
+5
+np.random.poisson(6.0)
+4
+np.random.normal(1.5, 4.0)
+-1.5224080889736675
+np.random.normal()
+0.957100788846741
+np.random.normal(size=5)
+array([-1.01092541,  0.58092445,  1.122653  , -0.1252049 ,  0.57716007])
+range(10)
+range(0, 10)
+1=range(10)
+  File "C:\Users\USER\AppData\Local\Temp\ipykernel_12604\3410464063.py", line 1
+    1=range(10)
+    ^
+SyntaxError: cannot assign to literal
+np.random.shuffle(1)
+---------------------------------------------------------------------------
+TypeError                                 Traceback (most recent call last)
+~\AppData\Local\Temp\ipykernel_12604\1092956409.py in <module>
+----> 1 np.random.shuffle(1)
+
+mtrand.pyx in numpy.random.mtrand.RandomState.shuffle()
+
+TypeError: object of type 'int' has no len()
+import scipy
+help(scipy)
+Help on package scipy:
+
+NAME
+    scipy
+
+DESCRIPTION
+    SciPy: A scientific computing package for Python
+    ================================================
+    
+    Documentation is available in the docstrings and
+    online at https://docs.scipy.org.
+    
+    Contents
+    --------
+    SciPy imports all the functions from the NumPy namespace, and in
+    addition provides:
+    
+    Subpackages
+    -----------
+    Using any of these subpackages requires an explicit import. For example,
+    ``import scipy.cluster``.
+    
+    ::
+    
+     cluster                      --- Vector Quantization / Kmeans
+     fft                          --- Discrete Fourier transforms
+     fftpack                      --- Legacy discrete Fourier transforms
+     integrate                    --- Integration routines
+     interpolate                  --- Interpolation Tools
+     io                           --- Data input and output
+     linalg                       --- Linear algebra routines
+     linalg.blas                  --- Wrappers to BLAS library
+     linalg.lapack                --- Wrappers to LAPACK library
+     misc                         --- Various utilities that don't have
+                                      another home.
+     ndimage                      --- N-D image package
+     odr                          --- Orthogonal Distance Regression
+     optimize                     --- Optimization Tools
+     signal                       --- Signal Processing Tools
+     signal.windows               --- Window functions
+     sparse                       --- Sparse Matrices
+     sparse.linalg                --- Sparse Linear Algebra
+     sparse.linalg.dsolve         --- Linear Solvers
+     sparse.linalg.dsolve.umfpack --- :Interface to the UMFPACK library:
+                                      Conjugate Gradient Method (LOBPCG)
+     sparse.linalg.eigen          --- Sparse Eigenvalue Solvers
+     sparse.linalg.eigen.lobpcg   --- Locally Optimal Block Preconditioned
+                                      Conjugate Gradient Method (LOBPCG)
+     spatial                      --- Spatial data structures and algorithms
+     special                      --- Special functions
+     stats                        --- Statistical Functions
+    
+    Utility tools
+    -------------
+    ::
+    
+     test              --- Run scipy unittests
+     show_config       --- Show scipy build configuration
+     show_numpy_config --- Show numpy build configuration
+     __version__       --- SciPy version string
+     __numpy_version__ --- Numpy version string
+
+PACKAGE CONTENTS
+    __config__
+    _build_utils (package)
+    _distributor_init
+    _lib (package)
+    cluster (package)
+    conftest
+    constants (package)
+    fft (package)
+    fftpack (package)
+    integrate (package)
+    interpolate (package)
+    io (package)
+    linalg (package)
+    misc (package)
+    ndimage (package)
+    odr (package)
+    optimize (package)
+    setup
+    signal (package)
+    sparse (package)
+    spatial (package)
+    special (package)
+    stats (package)
+    version
+
+CLASSES
+    builtins.tuple(builtins.object)
+        scipy._lib._ccallback.LowLevelCallable
+    
+    class LowLevelCallable(builtins.tuple)
+     |  LowLevelCallable(function, user_data=None, signature=None)
+     |  
+     |  Low-level callback function.
+     |  
+     |  Parameters
+     |  ----------
+     |  function : {PyCapsule, ctypes function pointer, cffi function pointer}
+     |      Low-level callback function.
+     |  user_data : {PyCapsule, ctypes void pointer, cffi void pointer}
+     |      User data to pass on to the callback function.
+     |  signature : str, optional
+     |      Signature of the function. If omitted, determined from *function*,
+     |      if possible.
+     |  
+     |  Attributes
+     |  ----------
+     |  function
+     |      Callback function given.
+     |  user_data
+     |      User data given.
+     |  signature
+     |      Signature of the function.
+     |  
+     |  Methods
+     |  -------
+     |  from_cython
+     |      Class method for constructing callables from Cython C-exported
+     |      functions.
+     |  
+     |  Notes
+     |  -----
+     |  The argument ``function`` can be one of:
+     |  
+     |  - PyCapsule, whose name contains the C function signature
+     |  - ctypes function pointer
+     |  - cffi function pointer
+     |  
+     |  The signature of the low-level callback must match one of those expected
+     |  by the routine it is passed to.
+     |  
+     |  If constructing low-level functions from a PyCapsule, the name of the
+     |  capsule must be the corresponding signature, in the format::
+     |  
+     |      return_type (arg1_type, arg2_type, ...)
+     |  
+     |  For example::
+     |  
+     |      "void (double)"
+     |      "double (double, int *, void *)"
+     |  
+     |  The context of a PyCapsule passed in as ``function`` is used as ``user_data``,
+     |  if an explicit value for ``user_data`` was not given.
+     |  
+     |  Method resolution order:
+     |      LowLevelCallable
+     |      builtins.tuple
+     |      builtins.object
+     |  
+     |  Methods defined here:
+     |  
+     |  __getitem__(self, idx)
+     |      Return self[key].
+     |  
+     |  __repr__(self)
+     |      Return repr(self).
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods defined here:
+     |  
+     |  from_cython(module, name, user_data=None, signature=None) from builtins.type
+     |      Create a low-level callback function from an exported Cython function.
+     |      
+     |      Parameters
+     |      ----------
+     |      module : module
+     |          Cython module where the exported function resides
+     |      name : str
+     |          Name of the exported function
+     |      user_data : {PyCapsule, ctypes void pointer, cffi void pointer}, optional
+     |          User data to pass on to the callback function.
+     |      signature : str, optional
+     |          Signature of the function. If omitted, determined from *function*.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Static methods defined here:
+     |  
+     |  __new__(cls, function, user_data=None, signature=None)
+     |      Create and return a new object.  See help(type) for accurate signature.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Readonly properties defined here:
+     |  
+     |  function
+     |  
+     |  signature
+     |  
+     |  user_data
+     |  
+     |  ----------------------------------------------------------------------
+     |  Methods inherited from builtins.tuple:
+     |  
+     |  __add__(self, value, /)
+     |      Return self+value.
+     |  
+     |  __contains__(self, key, /)
+     |      Return key in self.
+     |  
+     |  __eq__(self, value, /)
+     |      Return self==value.
+     |  
+     |  __ge__(self, value, /)
+     |      Return self>=value.
+     |  
+     |  __getattribute__(self, name, /)
+     |      Return getattr(self, name).
+     |  
+     |  __getnewargs__(self, /)
+     |  
+     |  __gt__(self, value, /)
+     |      Return self>value.
+     |  
+     |  __hash__(self, /)
+     |      Return hash(self).
+     |  
+     |  __iter__(self, /)
+     |      Implement iter(self).
+     |  
+     |  __le__(self, value, /)
+     |      Return self<=value.
+     |  
+     |  __len__(self, /)
+     |      Return len(self).
+     |  
+     |  __lt__(self, value, /)
+     |      Return self<value.
+     |  
+     |  __mul__(self, value, /)
+     |      Return self*value.
+     |  
+     |  __ne__(self, value, /)
+     |      Return self!=value.
+     |  
+     |  __rmul__(self, value, /)
+     |      Return value*self.
+     |  
+     |  count(self, value, /)
+     |      Return number of occurrences of value.
+     |  
+     |  index(self, value, start=0, stop=9223372036854775807, /)
+     |      Return first index of value.
+     |      
+     |      Raises ValueError if the value is not present.
+     |  
+     |  ----------------------------------------------------------------------
+     |  Class methods inherited from builtins.tuple:
+     |  
+     |  __class_getitem__(...) from builtins.type
+     |      See PEP 585
+
+FUNCTIONS
+    show_config = show()
+        Show libraries in the system on which NumPy was built.
+        
+        Print information about various resources (libraries, library
+        directories, include directories, etc.) in the system on which
+        NumPy was built.
+        
+        See Also
+        --------
+        get_include : Returns the directory containing NumPy C
+                      header files.
+        
+        Notes
+        -----
+        Classes specifying the information to be printed are defined
+        in the `numpy.distutils.system_info` module.
+        
+        Information may include:
+        
+        * ``language``: language used to write the libraries (mostly
+          C or f77)
+        * ``libraries``: names of libraries found in the system
+        * ``library_dirs``: directories containing the libraries
+        * ``include_dirs``: directories containing library header files
+        * ``src_dirs``: directories containing library source files
+        * ``define_macros``: preprocessor macros used by
+          ``distutils.setup``
+        
+        Examples
+        --------
+        >>> np.show_config()
+        blas_opt_info:
+            language = c
+            define_macros = [('HAVE_CBLAS', None)]
+            libraries = ['openblas', 'openblas']
+            library_dirs = ['/usr/local/lib']
+
+DATA
+    __numpy_version__ = '1.21.5'
+    test = <scipy._lib._testutils.PytestTester object>
+
+VERSION
+    1.9.1
+
+FILE
+    c:\users\user\anaconda3\lib\site-packages\scipy\__init__.py
+
+
+import scipy.interpolate
+DataFrame и Series
+import pandas as pd
+import numpy as np
+my_series = pd.Series([5,6,7,8,9,10])
+my_series
+0     5
+1     6
+2     7
+3     8
+4     9
+5    10
+dtype: int64
+my_series.index
+RangeIndex(start=0, stop=6, step=1)
+my_series.values
+array([ 5,  6,  7,  8,  9, 10], dtype=int64)
+my_series[4]
+9
+my_series2 = pd.Series([5,6,7,8,9,10], index = ['a', 'b', 'c', 'd', 'e', 'f'])
+my_series2['f']
+10
+my_series2[['a', 'b', 'f']] = 0
+my_series2
+a    0
+b    0
+c    7
+d    8
+e    9
+f    0
+dtype: int64
+my_series2[my_series2 > 0]
+c    7
+d    8
+e    9
+dtype: int64
+my_series2[my_series2 > 0] * 2
+c    14
+d    16
+e    18
+dtype: int64
+my_series3 = pd.Series({'a': 5, 'b': 6, 'c': 7, 'd':8})
+my_series3
+a    5
+b    6
+c    7
+d    8
+dtype: int64
+my_series3.name = 'numbers'
+my_series3.index.name = 'letter'
+my_series3
+letter
+a    5
+b    6
+c    7
+d    8
+Name: numbers, dtype: int64
+my_series3.index = ['A', 'B', 'C', 'D']
+my_series3
+A    5
+B    6
+C    7
+D    8
+Name: numbers, dtype: int64
+df = pd.DataFrame({
+    'country': ['Kazakhstan', 'Russia', 'Belarus', 'Ukrainee'],
+    'population': [17.04, 143.5, 9.5, 45.5],
+    'square': [27243434, 45673423, 897800, 605745]
+})
+df
+country	population	square
+0	Kazakhstan	17.04	27243434
+1	Russia	143.50	45673423
+2	Belarus	9.50	897800
+3	Ukrainee	45.50	605745
+df['country']
+0    Kazakhstan
+1        Russia
+2       Belarus
+3      Ukrainee
+Name: country, dtype: object
+type(df['country'])
+pandas.core.series.Series
+df.columns
+Index(['country', 'population', 'square'], dtype='object')
+df.index
+RangeIndex(start=0, stop=4, step=1)
+df = pd.DataFrame({
+    'country': ['Kazakhstan', 'Russia', 'Belarus', 'Ukrainee'],
+    'population': [17.04, 143.5, 9.5, 45.5],
+    'square': [27243434, 45673423, 897800, 605745]
+}, index=['KZ', 'RU', 'BY', 'UA'])
+df
+country	population	square
+KZ	Kazakhstan	17.04	27243434
+RU	Russia	143.50	45673423
+BY	Belarus	9.50	897800
+UA	Ukrainee	45.50	605745
+df.index = ['KZ', 'RU', 'BY', 'UA']
+df.index.name = 'Country Code'
+df
+country	population	square
+Country Code			
+KZ	Kazakhstan	17.04	27243434
+RU	Russia	143.50	45673423
+BY	Belarus	9.50	897800
+UA	Ukrainee	45.50	605745
+df['country']
+Country Code
+KZ    Kazakhstan
+RU        Russia
+BY       Belarus
+UA      Ukrainee
+Name: country, dtype: object
+df.loc['KZ']
+country       Kazakhstan
+population         17.04
+square          27243434
+Name: KZ, dtype: object
+df.iloc[0]
+country       Kazakhstan
+population         17.04
+square          27243434
+Name: KZ, dtype: object
+df.loc[['KZ', 'RU'], 'population']
+Country Code
+KZ     17.04
+RU    143.50
+Name: population, dtype: float64
+df.loc['KZ': 'BY', :]
+country	population	square
+Country Code			
+KZ	Kazakhstan	17.04	27243434
+RU	Russia	143.50	45673423
+BY	Belarus	9.50	897800
+df[df.population > 10][['country', 'square']]
+country	square
+Country Code		
+KZ	Kazakhstan	27243434
+RU	Russia	45673423
+UA	Ukrainee	605745
+df.reset_index()
+Country Code	country	population	square
+0	KZ	Kazakhstan	17.04	27243434
+1	RU	Russia	143.50	45673423
+2	BY	Belarus	9.50	897800
+3	UA	Ukrainee	45.50	605745
+df['density'] = df['population'] / df['square'] * 1000000
+df
+country	population	square	density
+Country Code				
+KZ	Kazakhstan	17.04	27243434	0.625472
+RU	Russia	143.50	45673423	3.141871
+BY	Belarus	9.50	897800	10.581421
+UA	Ukrainee	45.50	605745	75.114116
+df.drop(['density'], axis='columns')
+country	population	square
+Country Code			
+KZ	Kazakhstan	17.04	27243434
+RU	Russia	143.50	45673423
+BY	Belarus	9.50	897800
+UA	Ukrainee	45.50	605745
+df = df.rename(columns={'Country Code': 'country_code'})
+df
+country	population	square	density
+Country Code				
+KZ	Kazakhstan	17.04	27243434	0.625472
+RU	Russia	143.50	45673423	3.141871
+BY	Belarus	9.50	897800	10.581421
+UA	Ukrainee	45.50	605745	75.114116
+import matplotlib.pyplot as plt
+import pandas as pd
+df = pd.read_csv('apple.csv', index_col='Date', parse_dates=True)
+df = df.sort_index()
+print(df.info())
+<class 'pandas.core.frame.DataFrame'>
+DatetimeIndex: 1258 entries, 2012-02-23 to 2017-02-22
+Data columns (total 6 columns):
+ #   Column     Non-Null Count  Dtype  
+---  ------     --------------  -----  
+ 0   Open       1258 non-null   float64
+ 1   High       1258 non-null   float64
+ 2   Low        1258 non-null   float64
+ 3   Close      1258 non-null   float64
+ 4   Volume     1258 non-null   int64  
+ 5   Adj Close  1258 non-null   float64
+dtypes: float64(5), int64(1)
+memory usage: 68.8 KB
+None
+df.loc['2012-Feb', 'Close'].mean()
+528.4820022
+df.loc['2012-Feb':'2015-Feb', 'Close'].mean()
+430.43968317018414
+df.resample('W')['Close'].mean()
+Date
+2012-02-26    519.399979
+2012-03-04    538.652008
+2012-03-11    536.254004
+2012-03-18    576.161993
+2012-03-25    600.990001
+                 ...    
+2017-01-29    121.164000
+2017-02-05    125.867999
+2017-02-12    131.679996
+2017-02-19    134.978000
+2017-02-26    136.904999
+Freq: W-SUN, Name: Close, Length: 262, dtype: float64
+import matplotlib.pyplot as plt
+new_sample_df = df.loc['2012-Feb':'2017-Feb', ['Close']]
+new_sample_df.plot()
+plt.show()
+
+titanic_df = pd.read_csv('titanic.csv')
+print(titanic_df.head())
+   PassengerID                                           Name PClass    Age  \
+0            1                   Allen, Miss Elisabeth Walton    1st  29.00   
+1            2                    Allison, Miss Helen Loraine    1st   2.00   
+2            3            Allison, Mr Hudson Joshua Creighton    1st  30.00   
+3            4  Allison, Mrs Hudson JC (Bessie Waldo Daniels)    1st  25.00   
+4            5                  Allison, Master Hudson Trevor    1st   0.92   
+
+      Sex  Survived  SexCode  
+0  female         1        1  
+1  female         0        1  
+2    male         0        0  
+3  female         0        1  
+4    male         1        0  
+print(titanic_df.groupby(['Sex', 'Survived'])['PassengerID'].count())
+Sex     Survived
+female  0           154
+        1           308
+male    0           709
+        1           142
+Name: PassengerID, dtype: int64
+print(titanic_df.groupby(['PClass', 'Survived'])['PassengerID'].count())
+PClass  Survived
+*       0             1
+1st     0           129
+        1           193
+2nd     0           160
+        1           119
+3rd     0           573
+        1           138
+Name: PassengerID, dtype: int64
+titanic_df = pd.read_csv('titanic.csv')
+pvt = titanic_df.pivot_table(index=['Sex'], columns=['PClass'], values='Name', aggfunc='count')
+print(pvt.loc['female', ['1st', '2nd', '3rd']])
+PClass
+1st    143.0
+2nd    107.0
+3rd    212.0
+Name: female, dtype: float64
+from sklearn import metrics 
+from sklearn.metrics import pairwise_distances
+from sklearn import datasets 
+dataset = datasets.load_iris() 
+X = dataset.data
+y = dataset.target
+import numpy as np
+from sklearn.cluster import KMeans
+model = KMeans(n_clusters=3).fit(X) 
+labels = model.labels_ 
+metrics.silhouette_score(X, labels, metric='euclidean') 
+0.5528190123564093
+ 
+ 
+ 
